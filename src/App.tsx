@@ -3,7 +3,7 @@ import Form from './components/input';
 
 function App() {
 	return (
-		<div>
+		<div className="m-0 p-0">
 			<Form />
 		</div>
 	);
