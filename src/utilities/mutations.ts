@@ -1,3 +1,3 @@
 export const getURI = () => {
-  "hi";
+'hi'
 };
