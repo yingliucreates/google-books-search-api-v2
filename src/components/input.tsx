@@ -57,7 +57,6 @@ const Form = ({ onPassChange, onSubmit }) => {
           }
           ref={inputRef}
           type="text"
-          defaultValue={""}
           value={search}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
