@@ -28,7 +28,8 @@ const Container = () => {
   };
 
   useEffect(() => {
-    setDisplayDropdown(true);
+    if (!value) setDisplayDropdown(false);
+    else setDisplayDropdown(true);
   }, [value]);
 
   return (
