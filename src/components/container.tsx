@@ -9,7 +9,7 @@ const Container = () => {
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [displayGrid, setDisplayGrid] = useState(false);
 
-  const { loading, list } = useFetch(value);
+  const { loading, list } = useFetch(value, displayDropdown, displayGrid);
 
   const onPassChange = (value, isClickedOut = false) => {
     setValue(value);
