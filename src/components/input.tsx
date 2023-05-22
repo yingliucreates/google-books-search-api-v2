@@ -30,10 +30,6 @@ const Form = ({ onPassChange, onSubmit, isLoading }) => {
     onPassChange(search);
   }, [search]);
 
-  // useEffect(() => {
-  //   if (!isType) onPassClickOut(false);
-  // }, [isType]);
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
