@@ -20,6 +20,12 @@ const Container = () => {
     setDisplayGrid(true);
   };
 
+  // const onPassClickOut = (val) => {
+  //   if (val) setDisplayDropdown(true);
+  //   else setDisplayDropdown(false);
+  //   return () => setDisplayDropdown(false);
+  // };
+
   useEffect(() => {
     if (!value) setDisplayDropdown(false);
     else setDisplayDropdown(true);

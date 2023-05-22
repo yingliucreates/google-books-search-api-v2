@@ -1,3 +1,4 @@
+
 export const mutations = (query, displayDropdown, displayGrid) => {
   const paramsDropdown = {
     q: query,
