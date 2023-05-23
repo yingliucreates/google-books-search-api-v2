@@ -28,6 +28,7 @@ const Form = ({ onPassChange, onSubmit, isLoading }) => {
       setIsType(true);
     }
     onPassChange(search);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   const handleChange = (e) => {
@@ -42,6 +43,7 @@ const Form = ({ onPassChange, onSubmit, isLoading }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsType(false);
     onSubmit(search);
   };
 

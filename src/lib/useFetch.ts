@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { mapData } from "../utilities/mapData";
 import { mutations } from "../utilities/mutations";
-// import axios from "axios";
+import { mapData } from "../utilities/mapData";
 
-const useFetch = (query, displayDropdown, displayGrid) => {
+const useFetch = (query, toggle, dependency) => {
   const [loading, setLoading] = useState(true);
   const [list, setList] = useState([]);
 
@@ -17,20 +16,19 @@ const useFetch = (query, displayDropdown, displayGrid) => {
 
     async function requestBooks() {
       setLoading(true);
-      const { url, options } = mutations(query, displayDropdown, displayGrid);
-      console.log(url);
+      const { url, options } = mutations(query, toggle);
       const res = await fetch(url, options);
       if (res.status > 299 && res.status < 200) {
         throw new Error();
       }
-
       const data = await res.json();
-      setList(mapData(data.items, true));
+      setList(mapData(data.items, toggle));
       setLoading(false);
     }
-  }, [query, displayDropdown, displayGrid]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dependency]);
 
-  return { loading, list };
+  return [loading, list];
 };
 
 export default useFetch;
