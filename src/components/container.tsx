@@ -1,29 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Form from "./input";
 import Dropdown from "./dropdown";
 import Grid from "./grid";
 import useFetch from "../lib/useFetch";
+import Modal from "./modal";
 
 const Container = () => {
-  const [value, setValue] = useState("");
+  const [dropdownValue, setDropdownValue] = useState("");
+  const [gridValue, setGridValue] = useState("");
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [displayGrid, setDisplayGrid] = useState(false);
+  const [id, setId] = useState("");
 
-  const { loading, list } = useFetch(value, displayDropdown, displayGrid);
+  const onPassChange = useCallback(
+    (value, isClickedOut) => {
+      setDropdownValue(value);
+      if (isClickedOut) setDisplayDropdown(false);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [dropdownValue]
+  );
+  const onSubmit = useCallback(
+    (value) => {
+      setGridValue(value);
+      setDisplayDropdown(false);
+      setDisplayGrid(true);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [gridValue]
+  );
 
-  const onPassChange = (value, isClickedOut = false) => {
-    setValue(value);
-    if (isClickedOut) setDisplayDropdown(false);
+  const handleDropdownClick = (id) => {
+    setId(id);
   };
-  const onSubmit = () => {
-    setDisplayDropdown(false);
-    setDisplayGrid(true);
-  };
+
+  const [loadingDropdown, dropdownData] = useFetch(
+    dropdownValue,
+    "dropdown",
+    onPassChange
+  );
+  const [loadingGrid, gridData] = useFetch(gridValue, "grid", onSubmit);
 
   useEffect(() => {
-    if (!value) setDisplayDropdown(false);
-    else setDisplayDropdown(true);
-  }, [value]);
+    if (!dropdownValue) {
+      setDisplayDropdown(false);
+      return;
+    }
+    setDisplayDropdown(true);
+  }, [dropdownValue]);
 
   return (
     <div>
@@ -31,20 +55,21 @@ const Container = () => {
         <Form
           onPassChange={onPassChange}
           onSubmit={onSubmit}
-          isLoading={loading}
+          isLoading={loadingDropdown || loadingGrid}
         />
         {displayDropdown ? (
           <div className="z-10 w-full absolute -bottom-18">
-            <Dropdown>{list}</Dropdown>
+            <Dropdown onClick={handleDropdownClick}>{dropdownData}</Dropdown>
           </div>
         ) : null}
 
         {displayGrid ? (
           <div className="z-0 -bottom-18">
-            <Grid>{list}</Grid>
+            <Grid>{gridData}</Grid>
           </div>
         ) : null}
       </div>
+      <Modal>{id}</Modal>
     </div>
   );
 };
