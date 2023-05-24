@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from "react";
 
-const useOutsideClick = (ref, callback, ref2 = null) => {
+const useOutsideClick = (ref, callback, ref2 = null, callback2 = null) => {
   const handleClick = useCallback(
     (e) => {
       if (
@@ -12,9 +12,10 @@ const useOutsideClick = (ref, callback, ref2 = null) => {
         callback();
       } else if (ref.current && ref.current.contains(e.target)) {
         ref.current.focus();
+        callback2();
       }
     },
-    [callback, ref, ref2]
+    [callback, callback2, ref, ref2]
   );
   useEffect(() => {
     document.addEventListener("click", handleClick);

@@ -28,8 +28,8 @@ export const mapData = (data, toggle) => {
   } else if (toggle === "modal") {
     const item = data;
     return {
-      image: item?.volumeInfo?.imageLinks?.small
-        ? `https${item?.volumeInfo?.imageLinks?.small.slice(4)}`
+      image: item?.volumeInfo?.imageLinks?.thumbnail
+        ? `https${item?.volumeInfo?.imageLinks?.thumbnail.slice(4)}`
         : "",
       title: item?.volumeInfo?.title,
       authors: item?.volumeInfo?.authors,

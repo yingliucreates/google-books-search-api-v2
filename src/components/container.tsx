@@ -65,10 +65,12 @@ const Container = () => {
   return (
     <div
       className={
-        displayModal ? "bg-fuchsia-600 h-full min-h-full w-screen" : "h-full"
+        displayModal
+          ? "bg-fuchsia-600 h-screen min-h-screen w-screen"
+          : "h-screen"
       }
     >
-      <div className="relative z-0 pb-32">
+      <div className="relative z-0">
         <Form
           onPassChange={onPassChange}
           onSubmit={onSubmit}

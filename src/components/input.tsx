@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import useOutsideClick from "../lib/useOutsideClick";
 
 const Form = ({ onPassChange, onSubmit, isLoading, displayModal }) => {
-  const [isType, setIsType] = useState(true);
+  const [isType, setIsType] = useState(false);
   const [search, setSearch] = useState("");
 
   const inputRef = useRef(null);
@@ -14,7 +14,10 @@ const Form = ({ onPassChange, onSubmit, isLoading, displayModal }) => {
       setIsType(false);
       onPassChange(search, isType);
     },
-    btnRef
+    btnRef,
+    () => {
+      setIsType(true);
+    }
   );
 
   useEffect(() => {

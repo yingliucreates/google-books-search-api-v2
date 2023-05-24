@@ -13,9 +13,9 @@ function Modal({ children, onClick }) {
   }, []);
 
   return createPortal(
-    <div className="flex justify-center">
-      <div className="absolute z-20 pb-32 w-2/3 top-1/4">
-        <div className="relative w-full border-4 border-black">
+    <div className="flex justify-center items-center ">
+      <div className="absolute z-20 w-1/2 h-5/6 overflow-y-auto top-12 border-4 border-black">
+        <div className="relative w-full">
           {children}
           <div
             className="absolute z-20 right-5 top-2 text-5xl border-4 border-black pl-2 pr-2 hover:cursor-pointer"
