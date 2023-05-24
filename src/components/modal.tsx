@@ -13,14 +13,16 @@ function Modal({ children, onClick }) {
   }, []);
 
   return createPortal(
-    <div className="absolute z-20 pb-32 flex w-full top-1/4 justify-center">
-      <div className="relative w-3/4 border-4 border-black">
-        {children}
-        <div
-          className="absolute z-20 right-5 top-2 text-5xl hover:cursor-pointer"
-          onClick={onClick}
-        >
-          x
+    <div className="flex justify-center">
+      <div className="absolute z-20 pb-32 w-2/3 top-1/4">
+        <div className="relative w-full border-4 border-black">
+          {children}
+          <div
+            className="absolute z-20 right-5 top-2 text-5xl border-4 border-black pl-2 pr-2 hover:cursor-pointer"
+            onClick={onClick}
+          >
+            x
+          </div>
         </div>
       </div>
     </div>,

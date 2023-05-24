@@ -28,7 +28,7 @@ export const mutations = (query, toggle) => {
     Object.keys(params[toggle]).forEach((key) =>
       url.searchParams.append(key, params[toggle][key])
     );
-  } else {
+  } else if (toggle === "modal") {
     url = new URL(endPoint2);
     Object.keys(params[toggle]).forEach((key) =>
       url.searchParams.append(key, params[toggle][key])

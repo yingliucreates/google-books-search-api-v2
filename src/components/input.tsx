@@ -65,7 +65,7 @@ const Form = ({ onPassChange, onSubmit, isLoading }) => {
         {isType ? (
           <div className="absolute top-11 right-11 w-1/4">
             <button
-              className="p-1 w-full text-3xl h-14 border-4 border-fuchsia-400"
+              className="p-1 w-full text-3xl h-14 border-4 border-fuchsia-600"
               type="submit"
               ref={btnRef}
             >

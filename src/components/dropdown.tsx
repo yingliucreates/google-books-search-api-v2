@@ -1,14 +1,21 @@
-const Dropdown = ({ children, onClick }) => {
+const Dropdown = ({ children, onDetailClick }) => {
   return (
-    <div className="p-2 ml-10 mr-10 bg-slate-300">
+    <div className="ml-10 mr-10 -mt-1 border-4 border-black bg-white">
       {children.map((child) => (
         <div
-          key={child[0]}
-          className="flex justify-between"
-          onClick={() => onClick(child[0])}
+          key={child.id}
+          className="flex justify-between hover:bg-fuchsia-300 cursor-pointer gap-3"
+          onClick={() => {
+            onDetailClick(child.id);
+          }}
         >
-          <p className="w-2/3 truncate">{child[1]}</p>
-          <p className="truncate text-fuchsia-600 ">{child[2]}</p>
+          <div className="flex justify-start pb-1 w-2/3 gap-2">
+            <img className="h-6 pl-2 pt-1" src={child.image} />
+            <p className="truncate">{child.title}</p>
+          </div>
+          <p className="w-1/3 truncate text-fuchsia-600 text-right">
+            {child.authors}
+          </p>
         </div>
       ))}
     </div>

@@ -1,37 +1,40 @@
 export const mapData = (data, toggle) => {
   if (toggle === "dropdown") {
     // console.log(data);
-    return data.map((item) => [
-      item.id,
-      item?.volumeInfo?.title,
-      item?.volumeInfo?.authors?.join(", "),
-      item.volumeInfo?.imageLinks?.smallThumbnail
-        ? `https${item.volumeInfo?.imageLinks?.smallThumbnail.slice(4)}`
-        : "",
-    ]);
+    return data.map((item) => {
+      return {
+        id: item?.id,
+        title: item?.volumeInfo?.title,
+        authors: item?.volumeInfo?.authors?.join(", "),
+        image: item.volumeInfo?.imageLinks?.smallThumbnail
+          ? `https${item.volumeInfo?.imageLinks?.smallThumbnail.slice(4)}`
+          : "",
+      };
+    });
   } else if (toggle === "grid") {
-    return data.map((item) => [
-      item.id,
-      item.volumeInfo?.imageLinks?.thumbnail
-        ? `https${item.volumeInfo?.imageLinks?.thumbnail.slice(4)}`
-        : "",
-      item?.volumeInfo?.title,
-      item?.volumeInfo?.authors,
-      item?.volumeInfo?.publisher,
-    ]);
+    return data.map((item) => {
+      return {
+        id: item?.id,
+        title: item?.volumeInfo?.title,
+        authors: item?.volumeInfo?.authors[0],
+        image: item.volumeInfo?.imageLinks?.thumbnail
+          ? `https${item.volumeInfo?.imageLinks?.thumbnail.slice(4)}`
+          : "",
+        publisher: item?.volumeInfo?.publisher,
+      };
+    });
   } else if (toggle === "modal") {
     const item = data;
-    return [
-      item.id,
-      item.volumeInfo?.imageLinks?.small
-        ? `https${item.volumeInfo?.imageLinks?.small.slice(4)}`
+    return {
+      image: item?.volumeInfo?.imageLinks?.small
+        ? `https${item?.volumeInfo?.imageLinks?.small.slice(4)}`
         : "",
-      item.volumeInfo?.title,
-      item.volumeInfo?.authors,
-      item.volumeInfo?.categories?.[0],
-      item.volumeInfo?.publishedDate,
-      item.volumeInfo?.publisher,
-      item.volumeInfo?.description,
-    ];
+      title: item?.volumeInfo?.title,
+      authors: item?.volumeInfo?.authors,
+      category: item?.volumeInfo?.categories?.[0],
+      publishedDate: item?.volumeInfo?.publishedDate,
+      publisher: item?.volumeInfo?.publisher,
+      description: item?.volumeInfo?.description,
+    };
   }
 };
