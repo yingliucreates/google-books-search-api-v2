@@ -13,7 +13,7 @@ const Dropdown = ({ children, onDetailClick }) => {
             <img className="h-6 pl-2 pt-1" src={child.image} />
             <p className="truncate italic font-medium">{child.title}</p>
           </div>
-          <p className="w-1/3 truncate font-bold text-fuchsia-600 text-right">
+          <p className="w-1/3 truncate font-bold text-fuchsia-600 text-right pr-2">
             {child.authors}
           </p>
         </div>
