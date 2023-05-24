@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import useOutsideClick from "../lib/useOutsideClick";
 
-const Form = ({ onPassChange, onSubmit, isLoading }) => {
+const Form = ({ onPassChange, onSubmit, isLoading, displayModal }) => {
   const [isType, setIsType] = useState(true);
   const [search, setSearch] = useState("");
 
@@ -48,13 +48,13 @@ const Form = ({ onPassChange, onSubmit, isLoading }) => {
   };
 
   return (
-    <div className="relative z-0">
+    <div className={displayModal ? "blur relative z-0" : "relative z-0"}>
       <form className="pl-10 pr-10 pt-10" onSubmit={handleSubmit}>
         <input
           className={
             isType
-              ? "w-full p-1 h-16 text-4xl border-4 border-black autofocus focus:outline-none caret-w-2"
-              : "w-1/2 p-1 h-16 text-4xl border-4 border-black autofocus focus: outline-none caret-w-2"
+              ? "w-full p-1 h-16 text-4xl border-4 border-black autofocus focus:outline-none caret-w-2 "
+              : "w-1/2 p-1 h-16 text-4xl text-slate-400 border-4 border-black autofocus focus: black outline-none caret-w-2 hover:w-full active: black"
           }
           ref={inputRef}
           type="text"

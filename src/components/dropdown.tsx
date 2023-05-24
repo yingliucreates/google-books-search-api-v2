@@ -11,9 +11,9 @@ const Dropdown = ({ children, onDetailClick }) => {
         >
           <div className="flex justify-start pb-1 w-2/3 gap-2">
             <img className="h-6 pl-2 pt-1" src={child.image} />
-            <p className="truncate">{child.title}</p>
+            <p className="truncate italic font-medium">{child.title}</p>
           </div>
-          <p className="w-1/3 truncate text-fuchsia-600 text-right">
+          <p className="w-1/3 truncate font-bold text-fuchsia-600 text-right">
             {child.authors}
           </p>
         </div>

@@ -16,7 +16,7 @@ const useFetch = (query, toggle, dependency) => {
     }
 
     async function requestBooks() {
-      await setLoading(true);
+      setLoading(true);
       const { url, options } = mutations(query, toggle);
       const res = await fetch(url, options);
       if (res.status > 299 && res.status < 200) {
@@ -24,8 +24,8 @@ const useFetch = (query, toggle, dependency) => {
       }
       const data = await res.json();
       console.log(toggle, data);
-      await setList(mapData(toggle === "modal" ? data : data.items, toggle));
-      await setLoading(false);
+      setList(mapData(data, toggle));
+      setLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dependency]);

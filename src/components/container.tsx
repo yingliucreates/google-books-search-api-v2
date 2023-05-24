@@ -63,12 +63,17 @@ const Container = () => {
   }, [dropdownValue]);
 
   return (
-    <div className={displayModal ? "bg-fuchsia-600" : ""}>
+    <div
+      className={
+        displayModal ? "bg-fuchsia-600 h-full min-h-full w-screen" : "h-full"
+      }
+    >
       <div className="relative z-0 pb-32">
         <Form
           onPassChange={onPassChange}
           onSubmit={onSubmit}
           isLoading={loadingDropdown}
+          displayModal={displayModal}
         />
         {displayDropdown ? (
           <div className="z-10 w-full absolute -bottom-18">
@@ -80,7 +85,9 @@ const Container = () => {
 
         {displayGrid ? (
           <div className="z-0 -bottom-18">
-            <Grid onDetailClick={handleDetailClick}>{gridData}</Grid>
+            <Grid onDetailClick={handleDetailClick} displayModal={displayModal}>
+              {gridData}
+            </Grid>
           </div>
         ) : null}
       </div>
