@@ -2,12 +2,12 @@ export const mutations = (query, toggle) => {
   const params = {
     dropdown: {
       q: query,
-      maxResult: 10,
+      maxResults: 12,
       key: import.meta.env.VITE_API_KEY,
     },
     grid: {
       q: query,
-      startIndex: 0,
+      maxResults: 40,
       key: import.meta.env.VITE_API_KEY,
     },
     modal: {

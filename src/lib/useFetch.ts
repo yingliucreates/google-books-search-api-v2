@@ -23,7 +23,7 @@ const useFetch = (query, toggle, dependency) => {
         throw new Error();
       }
       const data = await res.json();
-      console.log(toggle, data);
+      console.log(toggle, url, data);
       setList(mapData(data, toggle));
       setLoading(false);
     }

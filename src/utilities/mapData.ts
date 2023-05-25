@@ -13,14 +13,14 @@ export const mapData = (data, toggle) => {
       };
     });
   } else if (toggle === "grid") {
-    data = data.items;
+    data = data.items || [];
     return data.map((item) => {
       return {
         id: item?.id,
         title: item?.volumeInfo?.title,
-        authors: item?.volumeInfo?.authors[0],
+        authors: item?.volumeInfo?.authors?.join(", "),
         image: item?.volumeInfo?.imageLinks?.thumbnail
-          ? `https${item?.volumeInfo?.imageLinks?.thumbnail.slice(4)}`
+          ? `https${item?.volumeInfo?.imageLinks?.thumbnail?.slice(4)}`
           : "",
         publisher: item?.volumeInfo?.publisher,
       };
