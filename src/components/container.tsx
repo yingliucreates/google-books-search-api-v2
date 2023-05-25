@@ -66,7 +66,7 @@ const Container = () => {
     <div
       className={
         displayModal
-          ? "bg-fuchsia-600 h-screen min-h-screen w-screen"
+          ? "bg-fuchsia-600 h-full min-h-screen w-screen"
           : "h-screen"
       }
     >

@@ -1,6 +1,6 @@
 const Details = ({ content }) => {
   return (
-    <div className="bg-white max-h-full">
+    <div className="max-h-full">
       <div className="pt-12 ml-16 mb-8 flex flex-col w-10/12 m-1/4 gap-1">
         <p className="font-bold">{content.authors}</p>
         <p className="font-medium text-3xl italic">{content.title}</p>

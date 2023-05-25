@@ -13,8 +13,8 @@ function Modal({ children, onClick }) {
   }, []);
 
   return createPortal(
-    <div className="flex justify-center items-center ">
-      <div className="absolute z-20 w-1/2 h-5/6 overflow-y-auto top-12 border-4 border-black">
+    <div className="flex justify-center items-center">
+      <div className="absolute z-20 w-1/2 h-5/6 overflow-y-auto top-12 border-4 border-black bg-white">
         <div className="relative w-full">
           {children}
           <div
