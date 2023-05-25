@@ -1,4 +1,5 @@
 const Grid = ({ children, onDetailClick, displayModal }) => {
+  // throw new Error("crashed!");
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 z-0 mt-5 overflow-y-auto h-full ml-10 mr-10">
       {children.map((child) => (

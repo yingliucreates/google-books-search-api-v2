@@ -5,6 +5,7 @@ import Grid from "./grid";
 import useFetch from "../lib/useFetch";
 import Modal from "./modal";
 import Details from "./details";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Container = () => {
   const [dropdownValue, setDropdownValue] = useState("");
@@ -78,25 +79,34 @@ const Container = () => {
           displayModal={displayModal}
         />
         {displayDropdown ? (
-          <div className="z-10 w-full absolute -bottom-18">
-            <Dropdown onDetailClick={handleDetailClick}>
-              {dropdownData}
-            </Dropdown>
-          </div>
+          <ErrorBoundary>
+            <div className="z-10 w-full absolute -bottom-18">
+              <Dropdown onDetailClick={handleDetailClick}>
+                {dropdownData}
+              </Dropdown>
+            </div>
+          </ErrorBoundary>
         ) : null}
 
         {displayGrid ? (
-          <div className="z-0 -bottom-18">
-            <Grid onDetailClick={handleDetailClick} displayModal={displayModal}>
-              {gridData}
-            </Grid>
-          </div>
+          <ErrorBoundary>
+            <div className="z-0 -bottom-18">
+              <Grid
+                onDetailClick={handleDetailClick}
+                displayModal={displayModal}
+              >
+                {gridData}
+              </Grid>
+            </div>
+          </ErrorBoundary>
         ) : null}
       </div>
       {displayModal ? (
-        <Modal onClick={handleModalClick}>
-          <Details content={modalData}></Details>
-        </Modal>
+        <ErrorBoundary>
+          <Modal onClick={handleModalClick}>
+            <Details content={modalData}></Details>
+          </Modal>
+        </ErrorBoundary>
       ) : null}
     </div>
   );
