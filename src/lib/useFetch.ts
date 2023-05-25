@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { mutations } from "../utilities/mutations";
 import { mapData } from "../utilities/mapData";
+import { debounceAsync } from "../utilities/debounce";
 
 const useFetch = (query, toggle, dependency) => {
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ const useFetch = (query, toggle, dependency) => {
       setLoading(false);
       return;
     } else {
-      requestBooks();
+      debounceAsync(requestBooks(), 1000);
     }
 
     async function requestBooks() {
