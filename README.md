@@ -1,6 +1,7 @@
 # Google Books Search
 
 A search app utilizing the Google Books API, incorporating React, Tailwind CSS, and Vite.
+Deployed here: https://google-books-search-api-v2.netlify.app/
 
 ## Install
 
