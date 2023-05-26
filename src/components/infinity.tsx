@@ -1,7 +1,4 @@
-//
-
-const infinity = () => {
+const InfinityScroll = () => {
   return <div>infinity</div>;
 };
-
-export default infinity;
+export default InfinityScroll;

@@ -14,7 +14,10 @@ export const mapData = (data, toggle) => {
     });
   } else if (toggle === "grid") {
     data = data.items || [];
-    return data.map((item) => {
+    return data.map((item, i) => {
+      if (data.length === i + 1) {
+        console.log("last element");
+      }
       return {
         id: item?.id,
         title: item?.volumeInfo?.title,
