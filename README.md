@@ -9,7 +9,7 @@ Deployed here: https://google-books-search-api-v2.netlify.app/
 npm install
 ```
 
-## Add an .env File in the Root folder to store your Google Books API Key
+## Add an .env File in the Root folder to Store Your Google Books API Key
 
 example:
 
