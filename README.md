@@ -1,6 +1,7 @@
 # Google Books Search
 
 A search app utilizing the Google Books API, incorporating React, Tailwind CSS, and Vite.
+Deployed here: https://google-books-search-api-v2.netlify.app/
 
 ## Install
 
@@ -8,7 +9,7 @@ A search app utilizing the Google Books API, incorporating React, Tailwind CSS, 
 npm install
 ```
 
-## Add an .env File in the Root folder to store your Google Books API Key
+## Add an .env File in the Root folder to Store Your Google Books API Key
 
 example:
 
