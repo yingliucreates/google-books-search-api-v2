@@ -10,7 +10,7 @@ export const debounceAsync = (fn, wait = 0) => {
   const debounced = debounce(
     (resolve, reject, args) =>
       fn(...args)
-        .then(resolve)
+        ?.then(resolve)
         .catch(reject),
     wait
   );
